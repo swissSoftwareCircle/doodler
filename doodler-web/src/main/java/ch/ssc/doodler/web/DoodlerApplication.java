@@ -15,13 +15,8 @@
  */
 package ch.ssc.doodler.web;
 
-import java.text.SimpleDateFormat;
-import java.util.GregorianCalendar;
-import java.util.List;
-
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
-import javax.print.attribute.standard.Sides;
 
 import ch.ssc.doodler.generated.OptionsType.Option;
 import ch.ssc.doodler.generated.PollType;
