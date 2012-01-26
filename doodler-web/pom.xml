@@ -6,10 +6,8 @@
         <groupId>ch.ssc</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-  <groupId>ch.ssc</groupId>
   <artifactId>doodler-web</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
   <name>Vaadin Web Application</name>
 
   <properties>
