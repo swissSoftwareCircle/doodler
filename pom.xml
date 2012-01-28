@@ -48,6 +48,7 @@
 		<jersey-bundle-version>1.4</jersey-bundle-version>
 		<jaxb-api-version>2.0</jaxb-api-version>
 		<vaadin-version>6.7.1</vaadin-version>
+		<slf4j-version>1.6.4</slf4j-version>
 	</properties>
 
 	<reporting>
