@@ -30,7 +30,7 @@ public class DoodleRESTClient {
 	
 	public PollType getPoll(String doodleId) {
 		
-		logger.debug("*************************** test");
+		logger.info("getPoll for {}", doodleId);
 		
 		WebResource wr = client.resource(DOODLE_URL + doodleId);
 		PollType pt = wr.accept(MediaType.APPLICATION_XML_TYPE).get(PollType.class);
