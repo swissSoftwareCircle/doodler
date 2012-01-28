@@ -15,8 +15,8 @@
  */
 package ch.ssc.doodler.web;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 
 import ch.ssc.doodler.generated.OptionsType.Option;
 import ch.ssc.doodler.generated.PollType;
@@ -39,7 +39,8 @@ public class DoodlerApplication extends Application
 {
     private Window window;
     private PollType pt;
-    @Inject
+    
+    @EJB
     private DoodleRESTClient client;
     
     @Override
@@ -65,6 +66,7 @@ public class DoodlerApplication extends Application
                 window.addComponent(vl);
             }
         });
+        window.addComponent(doodleUrl);
         window.addComponent(button);
         
     }
