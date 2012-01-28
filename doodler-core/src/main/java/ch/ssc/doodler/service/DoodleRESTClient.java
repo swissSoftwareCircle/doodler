@@ -3,19 +3,19 @@
  */
 package ch.ssc.doodler.service;
 
-import javax.inject.Named;
+import javax.ejb.Stateless;
 import javax.ws.rs.core.MediaType;
+
+import ch.ssc.doodler.generated.PollType;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
-
-import ch.ssc.doodler.generated.PollType;
 
 /**
  * @author benjaminhaegler
  *
  */
-@Named
+@Stateless
 public class DoodleRESTClient {
 	public static final String DOODLE_URL = "http://doodle-test.com/api1WithoutAccessControl/polls/";
 	

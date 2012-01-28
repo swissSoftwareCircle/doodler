@@ -4,20 +4,52 @@
 	<parent>
 		<artifactId>doodler</artifactId>
 		<groupId>ch.ssc</groupId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>doodler-core</artifactId>
+	<packaging>ejb</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<version>${maven-ejb-plugin-version}</version>
+				<configuration>
+					<ejbVersion>3.1</ejbVersion>
+					<jarName>${parent.project.artifactId}-core</jarName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
 	<dependencies>
 		<dependency>
-			<groupId>ch.ssc</groupId>
-			<artifactId>doodler-generated</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-generated</artifactId>
+			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-bundle</artifactId>
-			<version>1.4</version>
+			<version>${jersey-bundle-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${java-mail-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Java EE-API am Ende fuehren, da es nur Stub-Klassen sind. -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${java-ee-version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

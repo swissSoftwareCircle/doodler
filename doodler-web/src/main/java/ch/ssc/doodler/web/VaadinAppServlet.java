@@ -15,6 +15,7 @@ import com.vaadin.terminal.gwt.server.AbstractApplicationServlet;
  * @author benjaminhaegler
  *
  */
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/*")
 public class VaadinAppServlet extends AbstractApplicationServlet {
 
@@ -27,14 +28,12 @@ public class VaadinAppServlet extends AbstractApplicationServlet {
 	@Override
 	protected Class<? extends Application> getApplicationClass()
 			throws ClassNotFoundException {
-		// TODO Auto-generated method stub
 		return DoodlerApplication.class;
 	}
 
 	@Override
 	protected Application getNewApplication(HttpServletRequest request)
 			throws ServletException {
-		// TODO Auto-generated method stub
 		return app;
 	}
 

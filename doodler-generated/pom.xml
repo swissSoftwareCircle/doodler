@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>doodler</artifactId>
 		<groupId>ch.ssc</groupId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>doodler-generated</artifactId>
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
-			<version>2.0</version>
+			<version>${jaxb-api-version}</version>
 		</dependency>
 	</dependencies>
 
@@ -45,13 +45,6 @@
 					<generateDirectory>${basedir}/src/main/java</generateDirectory>
 					<strict>true</strict>
 					<verbose>true</verbose>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.5</source>
 				</configuration>
 			</plugin>
 		</plugins>
