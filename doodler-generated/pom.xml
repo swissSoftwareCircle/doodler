@@ -22,6 +22,7 @@
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 			<version>${jaxb-api-version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
