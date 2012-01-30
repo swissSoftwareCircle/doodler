@@ -1,0 +1,50 @@
+@import "../reindeer/styles.css";
+
+body {
+	background-color: white;
+}
+
+#wrapper {
+	margin: 30px auto;
+	width: 900px;
+	background-color: white;
+	box-shadow: 8px 8px 8px red,
+               -8px 8px 8px green,
+                8px -8px 8px blue,
+               -8px -8px 8px yellow;
+	/*box-shadow:8px 8px 8px #666;*/               
+}
+
+#head {
+	height: 148px;
+	background-image: url('icons/circle.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-bottom: 1px solid #333333;
+	text-align: center;
+	padding: 20px;	
+}
+
+#info {
+	padding: 20px;
+	border-bottom: 1px solid #333333;
+}
+
+#business-data {
+	height: 500px;
+	border-bottom: 1px solid #333333;
+}
+
+#doodle-head {
+	padding: 20px;
+	border-bottom: 1px solid #333333;
+}
+#doodle-input {
+	padding: 20px;
+}
+#doodle-buttons {
+	padding: 20px;
+}
+#doodle-results {
+	padding: 20px;
+}
