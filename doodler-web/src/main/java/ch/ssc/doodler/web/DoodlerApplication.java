@@ -25,6 +25,8 @@ import ch.ssc.doodler.service.DoodleRESTClient;
 import com.vaadin.Application;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.CustomLayout;
+import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
@@ -35,40 +37,29 @@ import com.vaadin.ui.Window;
  */
 @SuppressWarnings("serial")
 @SessionScoped
-public class DoodlerApplication extends Application
-{
-    private Window window;
-    private PollType pt;
-    
-    @EJB
-    private DoodleRESTClient client;
-    
-    @Override
-    public void init()
-    {
-        window = new Window("My Vaadin Application");
-        setMainWindow(window);
-        final TextField doodleUrl = new TextField("doodle url");
-        Button button = new Button("Click Me");
-        
-        button.addListener(new Button.ClickListener() {
-            public void buttonClick(ClickEvent event) {
-                window.addComponent(new Label("Thank you for clicking"));
-                pt = client.getPoll((String)doodleUrl.getValue());
-                VerticalLayout vl = new VerticalLayout();
-                Label l = new Label("Options");
-                Label doodleSubject = new Label(pt.getDescription());
-                vl.addComponent(l);
-                vl.addComponent(doodleSubject);
-                for (Option op : pt.getOptions().getOption()) {
-					vl.addComponent(new Label(op.getDateTime().toString()));
-				}
-                window.addComponent(vl);
-            }
-        });
-        window.addComponent(doodleUrl);
-        window.addComponent(button);
-        
-    }
-    
+public class DoodlerApplication extends Application {
+
+	private CustomLayout layout;
+
+	@Override
+	public void init() {
+		layout = new CustomLayout("application-layout");
+
+		Label head = new Label("SwissSoftwareCircle - doodler");
+		Label info = new Label("Information about doodler is placed here!");
+		DoodleDialog doodleDialog = new DoodleDialog();		
+		HorizontalSplitPanel businessData = new HorizontalSplitPanel();
+		businessData.setSplitPosition(50);
+		businessData.setSizeFull();
+		businessData.addComponent(doodleDialog);
+
+		layout.addComponent(head, "head");
+		layout.addComponent(info, "info");
+		layout.addComponent(businessData, "business-data");
+		
+		setTheme("ssc");
+		setMainWindow(new Window("El doodolero", layout));
+
+	}
+
 }
