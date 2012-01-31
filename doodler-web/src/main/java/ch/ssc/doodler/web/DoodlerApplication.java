@@ -15,21 +15,14 @@
  */
 package ch.ssc.doodler.web;
 
-import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-
-import ch.ssc.doodler.generated.OptionsType.Option;
-import ch.ssc.doodler.generated.PollType;
-import ch.ssc.doodler.service.DoodleRESTClient;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.vaadin.Application;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.CustomLayout;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 /**
@@ -37,9 +30,13 @@ import com.vaadin.ui.Window;
  */
 @SuppressWarnings("serial")
 @SessionScoped
+@Named
 public class DoodlerApplication extends Application {
 
 	private CustomLayout layout;
+	
+	@Inject
+	private DoodleDialog doodleDialog;
 
 	@Override
 	public void init() {
@@ -47,7 +44,9 @@ public class DoodlerApplication extends Application {
 
 		Label head = new Label("SwissSoftwareCircle - doodler");
 		Label info = new Label("Information about doodler is placed here!");
-		DoodleDialog doodleDialog = new DoodleDialog();		
+		
+		doodleDialog = new DoodleDialog();		
+		
 		HorizontalSplitPanel businessData = new HorizontalSplitPanel();
 		businessData.setSplitPosition(50);
 		businessData.setSizeFull();
